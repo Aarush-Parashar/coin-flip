@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<p>Choose your option</p>
+		<button onclick="
+		guess = 'head';
+		">Head</button>
+		
+		<button onclick="
+		guess = 'tail';
+		">Tail</button>
+		
+		<p>Flip the coin to see the result</p>
+		<button
+		onclick="
+			playGame();
+		"
+		>flip coin</button>
+		
+		<script>
+			let guess = '';
+			
+			let score = {
+				wins : 0,
+				losses : 0
+			};
+			
+		var randomNumber = Math.random();
+		
+		let result = '';	
+		
+		function playGame(){
+		if(randomNumber < 0.5){
+			result = 'head';
+			if(result === guess){
+				alert(`You chose ${guess}. Result is ${result}. You Win `);
+			}else{
+				alert(`You chose ${guess}. Result is ${result}. You Lose `);}
+		}else{
+			result = 'tail';
+			if(result === guess){
+				score.wins += 1;
+				alert(`You chose ${guess}. Result is ${result}. You Win `);
+			}else{
+				score.losses += 1;
+				alert(`You chose ${guess}. Result is ${result}. You Lose `);
+			}
+		}
+		alert(`Wins : ${score.wins}, Losses : ${score.losses}`)
+		}
+		
+		</script>
+		
+	</body>
+</html>
